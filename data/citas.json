@@ -1,0 +1,62 @@
+{
+  "status": "success",
+  "code": 200,
+  "mensaje": "Citas recuperadas exitosamente",
+  "data": [
+    {
+      "id_cita": 1,
+      "cliente": "Carlos Gómez",
+      "especialista": "Samuel Bohorquez",
+      "servicio": "Corte + Barba",
+      "color": "#1f2937",
+      "valor": 45000,
+      "mes": 9,
+      "fecha_cita": "2026-09-15 10:00:00",
+      "estado": "completada"
+    },
+    {
+      "id_cita": 2,
+      "cliente": "Andrés López",
+      "especialista": "Mateo Cortés",
+      "servicio": "Corte Clásico",
+      "color": "#3b82f6",
+      "valor": 25000,
+      "mes": 9,
+      "fecha_cita": "2026-09-15 11:00:00",
+      "estado": "completada"
+    },
+    {
+      "id_cita": 3,
+      "cliente": "Felipe Ruiz",
+      "especialista": "Jhon Bolaños",
+      "servicio": "Perfilado de Barba",
+      "color": "#10b981",
+      "valor": 15000,
+      "mes": 9,
+      "fecha_cita": "2026-09-15 12:00:00",
+      "estado": "cancelada"
+    },
+    {
+      "id_cita": 4,
+      "cliente": "Diego Morales",
+      "especialista": "Mateo Cortés",
+      "servicio": "Corte + Barba",
+      "color": "#1f2937",
+      "valor": 45000,
+      "mes": 10,
+      "fecha_cita": "2026-10-01 14:00:00",
+      "estado": "confirmada"
+    },
+    {
+      "id_cita": 5,
+      "cliente": "Santi Pérez",
+      "especialista": "Jhon Bolaños",
+      "servicio": "Diseño de Cejas",
+      "color": "#f59e0b",
+      "valor": 10000,
+      "mes": 10,
+      "fecha_cita": "2026-10-02 16:30:00",
+      "estado": "confirmada"
+    }
+  ]
+}
