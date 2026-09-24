@@ -117,3 +117,25 @@ export function crearTablaMese(listaMeses) {
     tabla.innerHTML = html;
     return tabla;
 }
+// crearTablaGrafica()
+export function crearTablaGrafica(tablaGrafica) {
+  const contenedor = document.createElement('div');
+  contenedor.classList.add('grafica-contenedor');
+
+  tablaGrafica.forEach(item => {
+    const fila = document.createElement('div');
+    fila.style.marginBottom = '12px';
+    fila.innerHTML = `
+      <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+        <strong>${item.servicio}</strong>
+        <span>$${item.total.toLocaleString('es-CO')} (${item.porcentaje}%)</span>
+      </div>
+      <div style="background: #e5e7eb; height: 12px; border-radius: 6px; overflow: hidden;">
+        <div style="background: ${item.color}; width: ${item.porcentaje}%; height: 100%;"></div>
+      </div>
+    `;
+    contenedor.appendChild(fila);
+  });
+
+  return contenedor;
+}

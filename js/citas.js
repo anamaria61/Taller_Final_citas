@@ -1,4 +1,4 @@
-export function useProcesarCitas(gastos = []) { 
+export function useProcesarCitas(citas = []) { 
     const totalPorEstado = {}; 
     const totalPorServicio = {}; 
     const estadosSet = new Set(); 
