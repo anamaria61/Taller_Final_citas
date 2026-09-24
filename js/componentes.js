@@ -47,7 +47,7 @@ export function crearTablaCitas(citas) {
         <tr>
             <td>#${c.id_cita}</td>
             <td>${c.cliente}</td>
-            <td>${c.barbero}</td>
+            <td>${c.especialista}</td>
             <td>${c.servicio}</td>
             <td>$${c.valor.toLocaleString('es-CO')}</td>
             <td><span class="badge ${c.estado}">${c.estado}</span></td>
@@ -138,4 +138,110 @@ export function crearTablaGrafica(tablaGrafica) {
   });
 
   return contenedor;
+}
+
+//RETO 1 tabla de totales por mes
+export function crearTablaTotalPorMes(totalPorMes) {
+    const nombresMeses = {
+        1: 'Enero', 2: 'Febrero', 3: 'Marzo', 4: 'Abril', 5: 'Mayo', 6: 'Junio',
+        7: 'Julio', 8: 'Agosto', 9: 'Septiembre', 10: 'Octubre', 11: 'Noviembre', 12: 'Diciembre'
+    };
+
+    const tabla = document.createElement('table');
+    tabla.classList.add('tabla-datos');
+
+    let html = `
+    <thead>
+      <tr>
+        <th>Mes</th>
+        <th>Total del Mes</th>
+      </tr>
+    </thead>
+    <tbody>`;
+
+    totalPorMes.forEach(item => {
+        html += `
+        <tr>
+            <td>${nombresMeses[item.mes] || item.mes}</td>
+            <td>$${item.total.toLocaleString('es-CO')}</td>
+        </tr>`;
+    });
+
+    html += '</tbody>';
+    tabla.innerHTML = html;
+    return tabla;
+}
+
+// RETO 3 y 4 - Crear filtros()
+// Filtro por estado y por servicio
+// "atributo" define el data-* que llevará
+// cada botón (por ejemplo "estado" o "servicio").
+export function crearFiltros(opciones, valorActivo, atributo) {
+    const contenedor = document.createElement('div');
+    contenedor.classList.add('filtros');
+
+    opciones.forEach((opcion) => {
+        const boton = document.createElement('button');
+        boton.type = 'button';
+        boton.classList.add('filtro-btn');
+        if (opcion.valor === valorActivo) {
+            boton.classList.add('activo');
+        }
+        boton.textContent = opcion.texto;
+        boton.dataset[atributo] = opcion.valor;
+        contenedor.appendChild(boton);
+    });
+
+    return contenedor;
+}
+
+// RETO 5 - CrearFormularioCita()
+export function crearFormularioCita() {
+    const formulario = document.createElement('form');
+    formulario.classList.add('formulario-cita');
+
+    formulario.innerHTML = `
+        <div class="campo">
+            <label for="cliente">Cliente</label>
+            <input type="text" id="cliente" name="cliente" required>
+        </div>
+
+        <div class="campo">
+            <label for="especialista">Especialista</label>
+            <input type="text" id="especialista" name="especialista" required>
+        </div>
+
+        <div class="campo">
+            <label for="servicio">Servicio</label>
+            <input type="text" id="servicio" name="servicio" required>
+        </div>
+
+        <div class="campo">
+            <label for="valor">Valor</label>
+            <input type="number" id="valor" name="valor" min="0" step="1000" required>
+        </div>
+
+        <div class="campo">
+            <label for="mes">Mes (1-12)</label>
+            <input type="number" id="mes" name="mes" min="1" max="12" required>
+        </div>
+
+        <div class="campo">
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha" name="fecha" required>
+        </div>
+
+        <div class="campo">
+            <label for="estado">Estado</label>
+            <select id="estado" name="estado">
+                <option value="completada">Completada</option>
+                <option value="confirmada">Confirmada</option>
+                <option value="cancelada">Cancelada</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn-agregar">Agregar cita</button>
+    `;
+
+    return formulario;
 }

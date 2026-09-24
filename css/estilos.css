@@ -8,12 +8,12 @@
   --negro-suave: #171717;
   --gris-oscuro: #262626;
 
-  --dorado: #c9a227;
-  --dorado-claro: #e7c85c;
-  --dorado-brillante: #f1d77a;
+  --dorado: #0d418f;
+  --dorado-claro: #5cb4e7;
+  --dorado-brillante: #8bcaf5;
 
-  --crema: #faf8f2;
-  --blanco: #ffffff;
+  --crema: #bed6f7;
+  --blanco: #ccd3d4;
 
   --texto: #242424;
   --texto-suave: #737373;
@@ -823,3 +823,98 @@ main > section:nth-child(5) {
   }
 
 }
+
+/* =========================================
+   RETO 3 y 4 — FILTROS
+========================================= */
+ 
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+ 
+.filtro-btn {
+  padding: 8px 18px;
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  background: var(--blanco);
+  color: var(--texto);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+ 
+.filtro-btn:hover {
+  border-color: var(--dorado);
+  color: var(--dorado);
+}
+ 
+.filtro-btn.activo {
+  background: var(--negro);
+  border-color: var(--negro);
+  color: var(--dorado-claro);
+  font-weight: bold;
+}
+
+
+/* =========================================
+   RETO 5 — FORMULARIO NUEVA CITA
+========================================= */
+ 
+.formulario-cita {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  background: var(--blanco);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+  margin-bottom: 10px;
+}
+ 
+.formulario-cita .campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+ 
+.formulario-cita label {
+  font-size: 13px;
+  color: var(--texto-suave);
+  font-weight: 600;
+}
+ 
+.formulario-cita input,
+.formulario-cita select {
+  padding: 10px 12px;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+}
+ 
+.formulario-cita input:focus,
+.formulario-cita select:focus {
+  outline: none;
+  border-color: var(--dorado);
+}
+ 
+.btn-agregar {
+  grid-column: 1 / -1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: var(--negro);
+  color: var(--dorado-claro);
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+ 
+.btn-agregar:hover {
+  background: var(--gris-oscuro);
+}
+ 

@@ -66,3 +66,19 @@ export function useProcesarCitas(citas = []) {
         tablaServiciosGrafica
     }; 
 } 
+
+// RETO 1 -ObteneTotalPorMes()
+// Agrupa el valor de las citas por mes y lo devuelve
+// como un arreglo ordenado
+export function obtenerTotalPorMes(citas = []) {
+    const totalPorMes = {};
+
+    citas.forEach((cita) => {
+        const valor = Number(cita.valor) || 0;
+        totalPorMes[cita.mes] = (totalPorMes[cita.mes] || 0) + valor;
+    });
+
+    return Object.entries(totalPorMes)
+        .map(([mes, total]) => ({ mes: Number(mes), total }))
+        .sort((a, b) => a.mes - b.mes);
+} 
