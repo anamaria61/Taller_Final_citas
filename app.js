@@ -1,6 +1,11 @@
 import { obtenerCitas } from './servicio.js'; 
 import { useProcesarCitas } from './citas.js'; 
-import { crearTarjeta, crearListaServicios }from './componentes.js'; 
+import {crearTarjeta, 
+        crearListaServicios,
+        crearTablaCitas,
+        crearTablaEstados,
+        crearTablaMeses
+}from './componentes.js'; 
 async function iniciarAplicacion() { 
     try { 
         // 1. Obtener datos 
@@ -13,11 +18,11 @@ async function iniciarAplicacion() {
         // 3. Crear tarjetas 
         const contenedor = document.querySelector('#resumen'); 
         const tarjetaTotal = crearTarjeta( 
-            'Total gastos', 
+            'Ingresos Totales', 
             `$${metricas.totalIngresos.toLocaleString('es-CO')}` 
         ); 
         const tarjetaCantidad = crearTarjeta( 
-            'Cantidad de gastos', 
+            'Cantidad de citas', 
             metricas.cantidadCitas 
         ); 
         contenedor.appendChild(tarjetaTotal); 
@@ -25,7 +30,12 @@ async function iniciarAplicacion() {
         // 4. Lista de servicios 
         const listaServicios = crearListaServicios( 
         metricas.listaServicios); 
-        document .querySelector('#servicios') .appendChild(listaServicios); 
+        document .querySelector('#servicios') .appendChild(listaServicios);
+        // 5. tablas adicinales 
+        document.querySelector('#tabla-citas').appendChild(crearTablaCitas(citas));
+        document.querySelector('#tabla-estados').appendChild(crearTablaEstados(metricas.totalPorEstado));
+        document.querySelector('#tabla-meses').appendChild(crearTablaMeses(mestricas.listaMeses));
+
     } catch (error) { 
         console.error( 'No fue posible iniciar la aplicación', error); 
     } 
