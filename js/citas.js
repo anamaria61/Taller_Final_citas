@@ -55,7 +55,7 @@ export function useProcesarCitas(citas = []) {
         totalIngresos, 
         cantidadCitas: citas.length, 
         totalPorEstado, 
-        totalPorCategoria: totalPorCategoriaSimple, 
+        totalPorServicio: totalPorServicioSimple, 
         listaEstados: 
         Array.from(estadosSet), 
         listaServicios: 

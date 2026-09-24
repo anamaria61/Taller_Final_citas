@@ -54,7 +54,7 @@ export function crearTablaCitas(citas) {
         </tr>`;
     });
 
-    html += '</tbody';
+    html += '</tbody>';
     tabla.innerHTML = html;
     return tabla;
 }
@@ -87,13 +87,13 @@ export function crearTablaEstados(totalPorEstado) {
 }
 
 // crearTablaMeses()
-export function crearTablaMese(listaMeses) {
+export function crearTablaMeses(listaMeses) {
     const nombresMeses = {
         1: 'Enero', 2: 'Febrero', 3: 'Marzo', 4: 'Abril', 5: 'Mayo', 6: 'Junio',
         7: 'Julio', 8: 'Agosto', 9: 'Septiembre', 10: 'Octubre', 11: 'Noviembre', 12: 'Diciembre'
     };
 
-    const tabla = Document.createElement('table');
+    const tabla = document.createElement('table');
     tabla.classList.add('tabla-datos');
 
     let html = `

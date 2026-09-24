@@ -1,6 +1,6 @@
 export async function obtenerCitas() { 
     try { 
-        const respuesta = await fetch('../data/citas.json'); 
+        const respuesta = await fetch('./data/citas.json'); 
         if (!respuesta.ok) { 
             throw new Error('Error al consultar la información'); 
         } 
